@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ActivityAlertViewForIOS7.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
+{
+ActivityAlertViewForIOS7 *AnimatedActivityalerttype;
+}
 
 @property (strong, nonatomic) UIWindow *window;
-
+-(void)ShowLoader;
+-(void)stopLoader;
 @end

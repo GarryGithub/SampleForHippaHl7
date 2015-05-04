@@ -12,6 +12,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    AnimatedActivityalerttype=[ActivityAlertViewForIOS7 instance];
     // Override point for customization after application launch.
     return YES;
 }
@@ -41,6 +42,25 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+#pragma mark LoaderScreen
+
+-(void)ShowLoader
+{
+    [self.window addSubview:AnimatedActivityalerttype];
+    [AnimatedActivityalerttype show];
+    
+    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+}
+-(void)stopLoader
+{
+    
+    [AnimatedActivityalerttype removeFromSuperview];
+    [AnimatedActivityalerttype close];
+    if ([[UIApplication sharedApplication] isIgnoringInteractionEvents])        {
+        [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+    }
+    
 }
 
 @end
